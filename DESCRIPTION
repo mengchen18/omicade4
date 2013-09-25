@@ -1,0 +1,23 @@
+Package: omicade4
+Type: Package
+Title: Multiple co-inertia analysis of omics datasets
+Version: 0.99.5
+Date: 2013-08-01
+Author: Chen Meng, Aedin Culhane, Amin M. Gholami.
+Maintainer: Chen Meng <chen.meng@tum.de>
+Imports: made4
+Depends: R (>= 3.0.0), ade4
+Suggests: BiocStyle
+Description: Multiple co-inertia analysis of omics datasets
+biocViews: Software, Bioinformatics, Clustering, Classification,
+        Multiple Comparisons
+Reference: Meng C, Culhane AC, Kuster B and Gholami AM. A multivariate
+        approach to the integration of multi-omics datasets.
+        (Manuscript under preparation) Culhane AC, Thioulouse J,
+        Perriere G, Higgins DG. (2005) MADE4: an R package for
+        multivariate analysis of gene expression data.Bioinformatics.
+        21(11):2789-90. S. Dray and A.B. Dufour. (2007) The ade4
+        package: implementing the duality diagram for ecologists.
+        Journal of Statistical Software 22(4):1-20.
+License: GPL-2
+LazyLoad: yes
