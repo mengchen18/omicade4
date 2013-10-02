@@ -68,7 +68,7 @@
   variables (genes). 
 }
 %\references{
-%  Meng C, Kuster B, Culhane AC, and Gholami AM. A multivariate 
+%  Meng C, Kuster B, Culhane AC and Gholami AM. A multivariate 
 %  approach to the integration of multi-omics datasets. 
 %  BMC bioinformatics (under review)
 %}

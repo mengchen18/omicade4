@@ -30,7 +30,7 @@ Maintainer: Chen Meng <chen.meng@tum.de>
 }
 
 \references{
-  Meng C, Culhane AC, Kuster B and Gholami AM. A multivariate 
+  Meng C, Kuster B, Culhane AC and Gholami AM. A multivariate 
   approach to the integration of multi-omics datasets. 
   (Manuscript under preparation) 
 
