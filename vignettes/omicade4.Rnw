@@ -3,7 +3,6 @@
 \usepackage{amsmath}
 \usepackage{times}
 %\usepackage{hyperref}
-\usepackage[numbers]{natbib}
 \usepackage{graphicx}
 <<style, eval=TRUE, echo=FALSE, results=tex>>=
 BiocStyle::latex()
@@ -266,6 +265,5 @@ plotVar(coin, var=c("S100B", "S100A1", "SERPINF1", "TRPM8"), var.lab=TRUE )
 \end{center}
 \end{figure}
 
-\bibliographystyle{unsrt}  
 \bibliography{omicade4}
 \end{document}
