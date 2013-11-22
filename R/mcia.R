@@ -62,7 +62,7 @@ mcia <- function (df.list, cia.nf = 2, cia.scan = FALSE, nsc = T, svd=TRUE)
   if (nsc) {
     df.list <- lapply(df.list, made4::array2ade4, pos = TRUE)
     coa.list <- lapply(df.list, dudi.nsc, scannf = FALSE, nf = cia.nf)
-    coa.list.t <- lapply(coa.list, t.dudi)
+    coa.list.t <- lapply(coa.list, ade4:::t.dudi)
     ktcoa <- ktab.list.dudi(coa.list.t)
   }
   if (!nsc) {

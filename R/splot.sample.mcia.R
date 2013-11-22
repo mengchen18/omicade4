@@ -49,7 +49,7 @@ function(x, axis1=1, axis2=2,
       pch <- rep(pch, table(c))
   
   par(mar = c(0.1, 0.1, 0.1, 0.1))
-  coo <- scatterutil.base(dfxy = dfxy, xax = axis1, yax = axis2, sub = sub, 
+  coo <- ade4:::scatterutil.base(dfxy = dfxy, xax = axis1, yax = axis2, sub = sub, 
                           xlim = NULL, ylim = NULL, grid = TRUE, 
                           addaxes = TRUE, cgrid = 1, include.origin = TRUE, 
                           origin = c(0, 0), csub = 1.25, possub = "bottomleft", 

@@ -64,7 +64,17 @@ function(x, var=NA, axes=1:2,
     ns <- rownames(idf)
     ns <- sapply(lapply(strsplit(ns, split="\\."), 
                         function(x) x[-length(x)]), paste, collapse=".")
-    plotgenes(idf, axis1=1, axis2=2, nlab=nlab, genelabels=ns, colpoints=bg.var.col)
+    
+    mcoaEnv <- environment(mcoa)
+    fakeEnv2 <- new.env(parent = mcoaEnv)
+    plotgenes2 <- made4::plotgenes
+    environment(plotgenes2) <- fakeEnv2
+    s.var <- made4::s.var
+    environment(s.var) <- environment(mcoa)
+    assign("genes", made4:::genes, fakeEnv2)
+    assign("s.var", s.var, fakeEnv2)
+    
+    plotgenes2(idf, axis1=1, axis2=2, nlab=nlab, genelabels=ns, colpoints=bg.var.col)
     
     if (!is.null(sepID.data))
       if (i %in% sepID.data)
