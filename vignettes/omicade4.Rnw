@@ -6,7 +6,7 @@
 \usepackage[numbers]{natbib}
 \usepackage{graphicx}
 <<style, eval=TRUE, echo=FALSE, results=tex>>=
-BiocStyle::latex()
+BiocStyle::latex(bibstyle="unsrt")
 @
 
 
@@ -217,6 +217,5 @@ geneStat <- plotVar(mcoin, var=c("S100B", "S100A1"), var.lab=TRUE)
 The output plot is shown in figure \ref{genespace1}.
 
 
-\bibliographystyle{unsrt}  
 \bibliography{omicade4}
 \end{document}
