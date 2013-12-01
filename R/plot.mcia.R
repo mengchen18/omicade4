@@ -66,6 +66,6 @@ function(x, axes=1:2, sample.lab=TRUE, sample.legend=TRUE, sample.color=1, pheno
   par(mar=c(4.5, 4.5, 0.5, 0.5))
   plot(cov2, pch=".", main="", axes=TRUE, col=NA, 
        xlab=paste("pseudoeig", axes[1]), ylab=paste("pseudoeig", axes[2]))
-  ade4:::scatterutil.grid(0)
+  scatterutil.grid(0)
   points(cov2, pch=pch, col=df.color)
 }
