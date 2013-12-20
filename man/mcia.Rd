@@ -91,7 +91,7 @@ mcia(df.list, cia.nf = 2, cia.scan = FALSE, nsc = T, svd = TRUE)
     profiling for the same set of cell lines, patients and etc. 
 
     \code{mcia} calls \code{\link[ade4:dudi.nsc]{dudi.nsc}}, 
-    \code{\link[ade4:ktab]{ktab}} and \code{\link[ade4:mcoa]{mcoa}} in ADE4
+    \code{\link[ade4:ktab]{ktab}} and \code{\link[ade4:mcoa]{mcoa}} in ade4
     packages.
 
     \bold{Plotting and visualizing \code{mcia} results}

@@ -29,16 +29,7 @@ function(x, var=NA, axes=1:2,
   layout(1:2)
   par(mar=c(0.1, 0.1, 0.1, 0.1))
   
-  mcoaEnv <- environment(mcoa)
-  fakeEnv2 <- new.env(parent = mcoaEnv)
-  plotgenes2 <- made4::plotgenes
-  environment(plotgenes2) <- fakeEnv2
-  s.var <- made4::s.var
-  environment(s.var) <- environment(mcoa)
-  assign("genes", made4:::genes, fakeEnv2)
-  assign("s.var", s.var, fakeEnv2)
-
-  plotgenes2(df1, axis1=axes[1], axis2=axes[2], nlab=nlab, genelabels=ndf1, colpoints=bg.var.col[1])
+  plotgenes(df1, axis1=axes[1], axis2=axes[2], nlab=nlab, genelabels=ndf1, colpoints=bg.var.col[1])
   ind <- ndf1 %in% var
   if (any(ind)) {
     points(df1[ind, ], pch=20, col=var.col[na.omit(match(ndf1, var))])
@@ -47,7 +38,7 @@ function(x, var=NA, axes=1:2,
   }
   legend(x="bottomleft", bty="n", legend="data1", x.intersp=-.5)
   
-  plotgenes2(df1, axis1=axes[1], axis2=axes[2], nlab=nlab, genelabels=ndf1, colpoints=bg.var.col[1])
+  plotgenes(df1, axis1=axes[1], axis2=axes[2], nlab=nlab, genelabels=ndf1, colpoints=bg.var.col[1])
   ind <- ndf2 %in% var
   if (any(ind)) {
     points(df2[ind, ], pch=20, col=var.col[na.omit(match(ndf2, var))])
