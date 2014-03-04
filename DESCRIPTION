@@ -1,7 +1,7 @@
 Package: omicade4
 Type: Package
 Title: Multiple co-inertia analysis of omics datasets
-Version: 1.2.1
+Version: 1.2.2
 Date: 2013-12-19
 Author: Chen Meng, Aedin Culhane, Amin M. Gholami.
 Maintainer: Chen Meng <chen.meng@tum.de>
@@ -9,8 +9,6 @@ Imports: made4
 Depends: R (>= 3.0.0), ade4
 Suggests: BiocStyle
 Description: Multiple co-inertia analysis of omics datasets
-biocViews: Software, Bioinformatics, Clustering, Classification,
-        Multiple Comparisons
 Reference: Meng C, Kuster B, Culhane AC and Gholami AM. A multivariate
         approach to the integration of multi-omics datasets.
         (Manuscript under preparation) Culhane AC, Thioulouse J,
@@ -22,3 +20,4 @@ Reference: Meng C, Kuster B, Culhane AC and Gholami AM. A multivariate
 License: GPL-2
 LazyLoad: yes
 Packaged: 2013-09-20 11:02:37 UTC; chen
+biocViews: Software, Clustering, Classification, MultipleComparison
