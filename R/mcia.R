@@ -15,7 +15,7 @@ mcia <- function (df.list, cia.nf = 2, cia.scan = FALSE, nsc = T, svd=TRUE)
     ind <- apply(df, 1, function(x) all(x == minn))
     if (any(ind)) 
       stop(paste("There are features in data.frame ", i, 
-                 " do not\n        expressed in all cases, please remove these features"))
+                 " do not\n        expressed in all observations, please remove these features"))
   }
   N <- sapply(df.list, ncol)
   df.list <- lapply(df.list, as.matrix)
@@ -32,7 +32,7 @@ mcia <- function (df.list, cia.nf = 2, cia.scan = FALSE, nsc = T, svd=TRUE)
   
   
   # ====================================
-  # ===== lapack function which is called by svd fails to coverage in some cases
+  # ===== lapack function which is called by svd fails to converge in some cases
   # ===== This function is used to replace svd when this happens
   # =================================
   
@@ -58,11 +58,29 @@ mcia <- function (df.list, cia.nf = 2, cia.scan = FALSE, nsc = T, svd=TRUE)
   } else
     stop("logical value required for svd")
   # =========================================
+  pairwise.rv <- function(data.list) {
+    rv <- function(m1, m2) {
+      nscm1 <- crossprod(as.matrix(m1))
+      nscm2 <- crossprod(as.matrix(m2))
+      rv <- sum(nscm1*nscm2)/(sum(nscm1*nscm1)*sum(nscm2*nscm2))^0.5
+      return(rv)
+    }
+    n <- length(data.list)
+    a <- combn(1:n, 2, FUN=function(x) 
+      rv(data.list[[x[1]]], data.list[[x[2]]]), simplify=TRUE)
+    m <- matrix(1, n, n)
+    m[lower.tri(m)] <- a
+    m[upper.tri(m)] <- t(m)[upper.tri(m)]
+    colnames(m) <- rownames(m) <- names(data.list)
+    return(m)
+  }
   
   if (nsc) {
     df.list <- lapply(df.list, made4::array2ade4, pos = TRUE)
     coa.list <- lapply(df.list, dudi.nsc, scannf = FALSE, nf = cia.nf)
     coa.list.t <- lapply(coa.list, ade4:::t.dudi)
+    dfl <- lapply(coa.list, function(x) x$tab)
+    RV <- pairwise.rv(dfl)
     ktcoa <- ktab.list.dudi(coa.list.t)
   }
   if (!nsc) {
@@ -78,11 +96,14 @@ mcia <- function (df.list, cia.nf = 2, cia.scan = FALSE, nsc = T, svd=TRUE)
     for (i in 1:length(coa.list)) {
       coa.list[[i]]$lw <- round(coa.list[[i]]$lw, digits = 8)
     }
+    dfl <- lapply(coa.list, function(x) x$tab)
+    dfl <- lapply(dfl, t) 
+    RV <- pairwise.rv(dfl)
     ktcoa <- ktab.list.dudi(coa.list)
   }
   mcoin <- try(mcoa2(X = ktcoa, nf = cia.nf, scannf = FALSE), silent=TRUE) # ...
   if (inherits (mcoin, "try-error")) {
-    warning("'svd' fail to convergence, 'eigen' used to performs singular value decomposition")
+    warning("'svd' fail to convergence, 'eigen' used to perform singular value decomposition")
     assign("svd", function(df) {
               res <- list()
               m <- tcrossprod(df, df)
@@ -101,6 +122,7 @@ mcia <- function (df.list, cia.nf = 2, cia.scan = FALSE, nsc = T, svd=TRUE)
   mcoin$Tcw <- ktcoa$cw
   mcoin$blo <- ktcoa$blo
   mcoin$Tc1 <- tab
+  mcoin$RV <- RV
   call <- match.call()
   mciares <- list(call = call, mcoa = mcoin, coa = coa.list)
   class(mciares) <- "mcia"
