@@ -1,7 +1,7 @@
 Package: omicade4
 Type: Package
 Title: Multiple co-inertia analysis of omics datasets
-Version: 1.5.1
+Version: 1.6.0
 Date: 2014-5-23
 Author: Chen Meng, Aedin Culhane, Amin M. Gholami.
 Maintainer: Chen Meng <chen.meng@tum.de>
