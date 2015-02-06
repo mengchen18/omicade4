@@ -12,8 +12,8 @@ The main function in the package performing multiple co-inertia analysis on omic
 \tabular{ll}{
 Package: \tab omicade4\cr
 Type: \tab Package\cr
-Version: \tab 1.0\cr
-Date: \tab 2013-04-01\cr
+Version: \tab 1.7.1\cr
+Date: \tab 2015-02-06\cr
 License: \tab GPL-2\cr
 LazyLoad: \tab yes\cr
 }
@@ -26,7 +26,7 @@ omics datasets.
 \author{
 Chen Meng, Aedin Culhane, Amin M. Gholami
 
-Maintainer: Chen Meng <chen.meng@tum.de>
+Maintainer: Chen Meng <mengchen18@gmail.com>
 }
 
 \references{
