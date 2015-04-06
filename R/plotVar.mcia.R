@@ -62,8 +62,9 @@ function(x, var=NA, axes=1:2,
     where <- match(i, df)
     idf <- df.list[[i]]
     ns <- rownames(idf)
-    ns <- sapply(lapply(strsplit(ns, split="\\."), 
-                        function(x) x[-length(x)]), paste, collapse=".")
+    if (all(grepl("\\.[1-9]$", ns)))
+      ns <- sapply(lapply(strsplit(ns, split="\\."), 
+                          function(x) x[-length(x)]), paste, collapse=".")
     plotgenes(idf, axis1=1, axis2=2, nlab=nlab, genelabels=ns, colpoints=bg.var.col)
     
     if (!is.null(sepID.data))

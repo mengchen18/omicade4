@@ -1,2 +1,6 @@
 mcia will return pairwise RV coefficient in the "$mcoa"
 updated reference
+
+version 1.6.2
+Date: 2015-04-06
+fix bug: update plotVar function - if input data set do not have any common ID, the id can not be identified by the function.
