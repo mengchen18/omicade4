@@ -8,6 +8,8 @@ S3method("plotVar", "mcia")
 S3method("plotVar", "cia")
 S3method("selectVar", "mcia")
 S3method("selectVar", "cia")
+S3method("topVar", "cia")
+S3method("topVar", "mcia")
 
-export("mcia", "plot.mcia", "plotVar", "selectVar")
+export("mcia", "plot.mcia", "plotVar", "selectVar", "topVar")
 
