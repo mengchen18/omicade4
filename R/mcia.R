@@ -103,7 +103,7 @@ mcia <- function (df.list, cia.nf = 2, cia.scan = FALSE, nsc = T, svd=TRUE)
   }
   mcoin <- try(mcoa2(X = ktcoa, nf = cia.nf, scannf = FALSE), silent=TRUE) # ...
   if (inherits (mcoin, "try-error")) {
-    warning("'svd' fail to convergence, 'eigen' used to perform singular value decomposition")
+    cat("'svd' fail to convergence, 'eigen' used to perform singular value decomposition")
     assign("svd", function(df) {
               res <- list()
               m <- tcrossprod(df, df)
