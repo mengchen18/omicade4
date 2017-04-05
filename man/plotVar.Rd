@@ -95,9 +95,9 @@ id <- split(rownames(mcoin_mod$mcoa$Tco), mcoin_mod$mcoa$TC$T)
 sapply(id, function(x) head(x))
 
 
-plotVar(mcoin_mod, var=c("S100B", "S100A1"), var.lab=TRUE, sepID.data=1:4, sepID.sep = c("\\.", "\\.", "\\.", "_"))
+plotVar(mcoin_mod, var=c("S100B", "S100A1"), var.lab=TRUE, sepID.data=1:4, sepID.sep = c("\\\.", "\\\.", "\\\.", "_"))
 plotVar(mcoin_mod, var=c("S100B", "S100A1"), var.lab=TRUE, sepID.data=4, sepID.sep="_")
-plotVar(mcoin_mod, var=c("S100B", "S100A1"), var.lab=TRUE, sepID.data=1:3, sepID.sep="\\.")
+plotVar(mcoin_mod, var=c("S100B", "S100A1"), var.lab=TRUE, sepID.data=1:3, sepID.sep="\\\.")
 
 
 }
