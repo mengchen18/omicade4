@@ -4,8 +4,8 @@ function(x, var=NA, axes=1:2,
          var.lab=FALSE, # T or F
          bg.var.col="gray", # the length either 1 or length(df)
          nlab=0, 
-         sepID.data=NULL, 
-         sepID.sep="_", 
+         sepID.data=seq_along(x),
+         sepID.sep= "\\.",
          df=NA, # either name of data.frame or numeric
          layout=NA, ...) 
   
@@ -14,6 +14,8 @@ function(x, var=NA, axes=1:2,
   rows <- mcoin$mcoa$Tco[axes]
   row.lab <- mcoin$mcoa$TC$"T"
   datasets <- names(mcoin$coa)
+  if (length(sepID.sep) == 1)
+    sepID.sep <- rep(sepID.sep, length(sepID.data))
   
   if (is.na(df[1]))
     df <- 1:length(datasets) else
@@ -22,7 +24,8 @@ function(x, var=NA, axes=1:2,
   
   if (!inherits(mcoin, "mcia"))
     stop("mcia object expected for mcoin")
-  if (!is.null(sepID.data[1]) && any(grep(sepID.sep, var)))
+  jt <- any(sapply(unique(sepID.sep), function(x) any(grep(x, var))))
+  if (!is.null(sepID.data[1]) && jt)
     warning("be careful: sepID.separator present in variable names")
   if (length(axes) != 2)
     stop("you have to select (only) 2 axis")
@@ -68,9 +71,11 @@ function(x, var=NA, axes=1:2,
     plotgenes(idf, axis1=1, axis2=2, nlab=nlab, genelabels=ns, colpoints=bg.var.col)
     
     if (!is.null(sepID.data))
-      if (i %in% sepID.data)
-        ns <- sapply(lapply(strsplit(ns, split=sepID.sep), 
-                            function(x) x[-length(x)]), paste, collapse=sepID.sep)
+      if (i %in% sepID.data) {
+        ww <- match(i, sepID.data)
+        ns <- sapply(lapply(strsplit(ns, split=sepID.sep[ww]), 
+                            function(x) x[-length(x)]), paste, collapse=sepID.sep[ww])
+      }
     ind <- ns %in% var
     if (any(ind)) {
       points(idf[ind, ], pch=20, col=var.col[na.omit(match(ns, var))])

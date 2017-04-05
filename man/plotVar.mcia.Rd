@@ -10,8 +10,8 @@
 \usage{
 \method{plotVar}{mcia}(x, var = NA, axes = 1:2, 
   var.col = "red", var.lab = FALSE, bg.var.col = "gray", 
-  nlab = 0, sepID.data = NULL, sepID.sep = "_", 
-   df = NA, layout = NA, ...)
+  nlab = 0, sepID.data=seq_along(x), sepID.sep= "\\\.",
+  df = NA, layout = NA, ...)
 }
 \arguments{
   \item{x}{
@@ -59,11 +59,6 @@
   variables.
 }
 
-%\references{
-%  Meng C, Kuster B, Culhane AC, and Gholami AM. A multivariate 
-%  approach to the integration of multi-omics datasets. 
-%  BMC bioinformatics (under review)
-%}
 \author{
   Chen Meng
 }
