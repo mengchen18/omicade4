@@ -73,4 +73,21 @@ See Also as \code{\link{plotVar.cia}}, \code{\link{plotVar}}
   plotVar(mcoin, var=NA, bg.var.col=1:4,  var.lab=TRUE)
   plotVar(mcoin, var=c("SPOPL", "CAPN2", "SNX8"), 
           df=1:4, var.lab=TRUE, var.col=c("red", "green", "blue"))
+
+  data(NCI60_4arrays)
+  mcoin <- mcia(NCI60_4arrays)
+  plotVar(mcoin, var=c("S100B", "S100A1"), var.lab=TRUE)
+
+  # an example for the usage of sepID.data and sepID.sep
+  nci60_mod <- NCI60_4arrays
+  rownames(nci60_mod$hgu95) <- paste(rownames(nci60_mod$hgu95), "s1", sep="_")
+  mcoin_mod <- mcia(nci60_mod)
+  id <- split(rownames(mcoin_mod$mcoa$Tco), mcoin_mod$mcoa$TC$T)
+  sapply(id, function(x) head(x))
+
+
+  plotVar(mcoin_mod, var=c("S100B", "S100A1"), var.lab=TRUE, sepID.data=1:4, sepID.sep = c("\\.", "\\.", "\\.", "_"))
+  plotVar(mcoin_mod, var=c("S100B", "S100A1"), var.lab=TRUE, sepID.data=4, sepID.sep="_")
+  plotVar(mcoin_mod, var=c("S100B", "S100A1"), var.lab=TRUE, sepID.data=1:3, sepID.sep="\\.")
+
 }
