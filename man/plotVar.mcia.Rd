@@ -10,7 +10,7 @@
 \usage{
 \method{plotVar}{mcia}(x, var = NA, axes = 1:2, 
   var.col = "red", var.lab = FALSE, bg.var.col = "gray", 
-  nlab = 0, sepID.data=seq_along(x), sepID.sep= "\\\.",
+  nlab = 0, sepID.data=NULL, sepID.sep= "\\\.",
   df = NA, layout = NA, ...)
 }
 \arguments{

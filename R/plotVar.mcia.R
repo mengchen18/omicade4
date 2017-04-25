@@ -4,12 +4,14 @@ function(x, var=NA, axes=1:2,
          var.lab=FALSE, # T or F
          bg.var.col="gray", # the length either 1 or length(df)
          nlab=0, 
-         sepID.data=seq_along(x),
+         sepID.data=NULL,
          sepID.sep= "\\.",
          df=NA, # either name of data.frame or numeric
          layout=NA, ...) 
   
   {
+    if (is.null(sepID.data))
+    sepID.data <- seq_along(x$coa)
   mcoin <- x
   rows <- mcoin$mcoa$Tco[axes]
   row.lab <- mcoin$mcoa$TC$"T"

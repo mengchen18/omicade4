@@ -3,6 +3,13 @@ importFrom("made4", "plotgenes")
 importFrom("made4", "s.var")
 import("ade4")
 
+importFrom("graphics", "axis", "barplot", "box", "layout", "legend",
+           "lines", "mtext", "par", "plot", "points", "segments",
+           "text")
+importFrom("stats", "na.omit")
+importFrom("utils", "combn")
+
+
 S3method("plot", "mcia")
 S3method("plotVar", "mcia")
 S3method("plotVar", "cia")
