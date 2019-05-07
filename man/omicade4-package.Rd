@@ -45,7 +45,7 @@ Maintainer: Chen Meng <mengchen18@gmail.com>
 
 \keyword{multivariate}
 \seealso{
-  \code{\link[ade4]{ade4}} and package \code{made4}
+  \code{ade4} and package \code{made4}
 }
 \examples{
   data(NCI60_4arrays)
