@@ -75,6 +75,7 @@ mcia <- function (df.list, cia.nf = 2, cia.scan = FALSE, nsc = T, svd=TRUE)
     return(m)
   }
   
+  df.list <- lapply(df.list, as.data.frame)
   if (nsc) {
     df.list <- lapply(df.list, made4::array2ade4, pos = TRUE)
     coa.list <- lapply(df.list, dudi.nsc, scannf = FALSE, nf = cia.nf)
