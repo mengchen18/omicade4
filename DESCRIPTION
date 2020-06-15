@@ -4,7 +4,7 @@ Title: Multiple co-inertia analysis of omics datasets
 Version: 1.29.2
 Date: 2020-06-09
 Author: Chen Meng, Aedin Culhane, Amin M. Gholami.
-Maintainer: Chen Meng <mengchen18@gmail.de>
+Maintainer: Chen Meng <mengchen18@gmail.com>
 Imports: made4
 Depends: R (>= 3.0.0), ade4
 Suggests: BiocStyle
