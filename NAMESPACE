@@ -1,6 +1,6 @@
-importFrom("made4", "array2ade4")
 importFrom("made4", "plotgenes")
 importFrom("made4", "s.var")
+importFrom("Biobase", "exprs")
 import("ade4")
 
 importFrom("graphics", "axis", "barplot", "box", "layout", "legend",

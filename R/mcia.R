@@ -2,7 +2,7 @@ mcia <- function (df.list, cia.nf = 2, cia.scan = FALSE, nsc = T, svd=TRUE)
 {
   df.list <- lapply (df.list, function(x) {
     if (inherits(x, "ExpressionSet")) {
-      r <- made4:::getdata(x)
+      r <- getdata(x)
     } else {
       r <- x
     }
