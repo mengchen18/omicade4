@@ -77,7 +77,7 @@ mcia <- function (df.list, cia.nf = 2, cia.scan = FALSE, nsc = T, svd=TRUE)
   
   df.list <- lapply(df.list, as.data.frame)
   if (nsc) {
-    df.list <- lapply(df.list, made4::array2ade4, pos = TRUE)
+    df.list <- lapply(df.list, array2ade4, pos = TRUE)
     coa.list <- lapply(df.list, dudi.nsc, scannf = FALSE, nf = cia.nf)
     coa.list.t <- lapply(coa.list, ade4:::t.dudi)
     dfl <- lapply(coa.list, function(x) x$tab)
@@ -86,7 +86,7 @@ mcia <- function (df.list, cia.nf = 2, cia.scan = FALSE, nsc = T, svd=TRUE)
   }
   if (!nsc) {
     df.list <- lapply(df.list, t)
-    df.list <- lapply(df.list, made4::array2ade4, pos = TRUE)
+    df.list <- lapply(df.list, array2ade4, pos = TRUE)
     coa1 <- dudi.coa(df.list[[1]], scannf = FALSE, nf = cia.nf)
     coa.list <- lapply(df.list[-1], made4:::dudi.rwcoa, rowweights = coa1$lw, 
                        scannf = FALSE, nf = cia.nf)
